@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<title>reveal.js</title>
+	<link rel="stylesheet" href="/src/reveal/css/reset.css">
+	<link rel="stylesheet" href="/src/reveal/css/reveal.css">
+	<link rel="stylesheet" href="/src/reveal/theme/simple.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="/src/reveal/plugin/highlight/default.css">
+	<link rel="stylesheet" href="/src/slides/css/index.css" />
+	<link rel="stylesheet" href="/src/tailwind/index.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<div class="middle text-center">
+					<div style="width: 100%">
+						<h3>Python安装与基础语法</h3>
+						<p class="text-red-900 mt-4">助教: 刘卓轩</p>
+					</div>
+				</div>
+			</section>
+			<section>
+
+				<section>
+					<div class="middle text-center">
+						<div style="width: 100%">
+							<h3>Python安装</h3>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">Python简介</h4>
+						<p class="text-xl mt-4 mx-6 px-4">Python 是一种高级的、面向对象的编程语言，它的设计注重代码的可读性和简洁性。
+							它被广泛应用于数据科学、机器学习、人工智能、Web 开发、网络编程等领域，并且在近年来迅速发展和流行。</p>
+						<blockquote class="bg-gray-50 mx-10 mt-6 px-4 py-2 rounded-md">
+							<ul class="text-lg mx-4">
+								<li>
+									简洁易读：Python 的语法简单易懂，具有优雅的表达力，使得程序员可以更加专注于问题本身，而不是语言的细节。
+								</li>
+								<li>
+									大量的开源库：Python 有非常丰富的第三方库和工具，这些库能够完成各种各样的任务，例如：NumPy、Pandas、Scikit-Learn、
+									TensorFlow等等，可以用于数据分析、科学计算、机器学习、深度学习等领域，能够提高开发的效率。
+								</li>
+								<li>
+									跨平台：Python 可以运行在多个平台上，包括 Windows、Linux、MacOS 等，这意味着您可以在不同的操作系统上开发和部署应用程序。
+								</li>
+								<li>
+									社区支持：Python 有一个庞大的开发者社区，这些人共享着他们的经验和代码，帮助解决问题并提供支持。
+								</li>
+							</ul>
+						</blockquote>
+						<div class="mt-6 mx-10 grid grid-cols-5 items-center">
+							<img src="/class1-1/numpy.png" class="mx-auto" alt="">
+							<img src="/class1-1/pandas.png" class="w-11/12 mx-auto" alt="">
+							<img src="/class1-1/sklearn.png" class="w-11/12 mx-auto" alt="">
+							<img src="/class1-1/pytorch.png" class="w-7/12 mx-auto" alt="">
+							<img src="/class1-1/tensorflow.png" class="mx-auto" alt="">
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">Miniconda</h4>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							Miniconda 是 conda 的免费最小安装程序。 它是 Anaconda 的小型引导程序版本，仅包含 conda、Python、它们所依赖的包，
+							以及少量其他有用的包，包括 pip、zlib 和其他一些包。 使用 conda install 命令从 Anaconda 存储库安装 720 多个额外的 conda 包。
+							<span class="text-xl leading-8 text-red-600">勾选添加到环境变量！</span>
+							<a class="text-blue-600" href="https://docs.conda.io/en/latest/miniconda.html">link</a>
+						</p>
+						<div class="mx-10 grid grid-cols-2 items-center">
+							<img src="/class1-1/conda_logo.svg" class="w-10/12 mx-auto" alt="">
+							<div>
+								<p class="text-xl my-3 mx-6 leading-8">
+									新建conda虚拟环境
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										conda create -n ENV_NAME python=3.*.*
+									</code></pre>
+								<p class="text-xl my-3 mx-6 leading-8">
+									激活环境
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										conda activate ENV_NAME
+									</code></pre>
+								<p class="text-xl my-3 mx-6 leading-8">
+									显示该环境下已安装包
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										conda list
+									</code></pre>
+								<p class="text-xl my-3 mx-6 leading-8">
+									退出环境
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										conda deactivate
+									</code></pre>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">PIP</h4>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							pip 是 Python 的一个包管理工具，它可以用来搜索、安装、升级和卸载 Python 包。它是 Python 标准库之外的第三方包，
+							可以通过安装 Python 或在操作系统的包管理系统中安装来获得。使用 pip，您可以轻松地从 Python 包索引(PyPI) 安装最新版本的包，
+							并且可以自动处理包之间的依赖关系。除此之外，您还可以使用 pip 安装本地的包，从其他索引中安装包，升级和卸载已安装的包，
+							以及查看已安装的包列表等等。
+							<a class="text-blue-600" href="https://pip.pypa.io/en/stable/installation/">link</a>
+						</p>
+						<div class="mx-10 grid grid-cols-2 items-center">
+							<img src="/class1-1/pypi.svg" class="w-9/12 mx-auto" alt="">
+							<div>
+								<p class="text-xl my-3 mx-6 leading-8">
+									从 PyPI 安装包
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										pip install &lt;package&gt;
+									</code></pre>
+								<p class="text-xl my-3 mx-6 leading-8">
+									安装指定版本的包
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										pip install &lt;package&gt;==&lt;version&gt;
+									</code></pre>
+								<p class="text-xl my-3 mx-6 leading-8">
+									从requirements.txt文件中安装依赖项
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										pip install -r requirements.txt
+									</code></pre>
+								<p class="text-xl my-3 mx-6 leading-8">
+									卸载指定的包
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										pip uninstall &lt;package&gt;
+									</code></pre>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">Conda换源</h4>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							conda 国内下载第三方库速度较慢，可考虑切换国内源，如清华源、中科大源、阿里云源等。
+						</p>
+						<div class="mx-4">
+							<div>
+								<p class="text-xl my-3 mx-6 leading-8">
+									windows下添加清华源
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+										conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 
+										conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+										conda config --set show_channel_urls yes
+									</code></pre>
+								<p class="text-xl my-3 mx-6 leading-8">
+									linux下添加清华源
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										vim ~/.condarc
+									</code></pre>
+								<pre class="text-base mt-2 rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										channels:
+										- https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+										- https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
+										- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+										- defaults
+										show_channel_urls: true
+									</code></pre>
+								<p class="text-xl my-3 mx-6 leading-8">
+									换回默认源
+								</p>
+								<pre class="text-base rounded-xl bg-gray-100 mx-4"><code data-trim data-noescape>
+										conda config --remove-key channels
+									</code></pre>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">VS Code 安装</h4>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							Visual Studio Code 是一款轻量级但功能强大的源代码编辑器，可在您的桌面上运行，适用于 Windows、macOS 和 Linux。
+							内置了对 JavaScript、TypeScript 和 Node.js 的支持，并拥有丰富的其他语言和运行时扩展生态系统
+							（例如 C++、C#、Java、Python、PHP、Go、.NET）。
+							<a class="text-blue-600" href="https://code.visualstudio.com/">link</a>
+						</p>
+						<div class="mt-2 mx-10 grid grid-cols-2 items-start">
+							<div>
+								<p class="text-xl mt-4 px-4 leading-8">
+									常用快捷键：
+								</p>
+								<ul class="text-lg mx-4">
+									<li>
+										<span class="text-red-600">shift + ctrl + P：打开命令面板</span> <br>
+										(不知道命令是什么的时候用它准没错)
+									</li>
+									<li>
+										ctrl + /：单行注释
+									</li>
+									<li>
+										shift + alt + F：格式化代码
+									</li>
+									<li>
+										alt + up/down： 移动行
+									</li>
+									<li>
+										ctrl + shift + F/R：全局查找/替换文件
+									</li>
+									<li>
+										ctrl + F/R：在当前文件查找/替换
+									</li>
+									<li>
+										ctrl + R：全局查找文件
+									</li>
+									<li>
+										F12：跳转代码定义
+									</li>
+								</ul>
+							</div>
+							<div>
+								<p class="text-xl mt-4 px-4 leading-8">
+									常用扩展：
+								</p>
+								<ul class="text-lg mx-4">
+									<li>
+										Python、Jupyter、Pylance、isort
+									</li>
+									<li>
+										WSL
+									</li>
+									<li>
+										IntelliCode、Github Copilot
+									</li>
+									<li>
+										gitignore
+									</li>
+									<li>
+										others：Markdown Preview Enhanced、Latex、C&nbsp;/&nbsp;C++&nbsp;&nbsp;...
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<div class="middle text-center">
+						<div style="width: 100%">
+							<h3>Python入门</h3>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">运行你的第一个python程序</h4>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							新建文件夹，使用vscode打开，新建文件hello.py，输入以下代码：
+						</p>
+						<pre class="text-base rounded-xl bg-gray-100 mx-10 mt-4"><code data-trim data-noescape>
+							print("hello world")
+						</code></pre>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							运行方式：
+						</p>
+						<ul class="text-lg mx-14">
+							<li>
+								vscode 右上角运行按钮，执行当前文件
+							</li>
+							<li>
+								vscode 菜单栏，选择运行，选择调试或者非调试运行，选择python
+							</li>
+							<li>
+								vscode 打开终端，在当前目录输入python hello.py
+							</li>
+						</ul>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							两个注意事项：
+						</p>
+						<ul class="text-lg mx-14">
+							<li>
+								使用vscode运行与调试可以创建launch.json文件，可以在里面配置运行环境，比如环境变量、传入参数等
+							</li>
+							<li>
+								请在右下角选择正确的python环境，否则可能会出现找不到模块的错误
+							</li>
+						</ul>
+						<div style="height: 8rem">
+						</div>
+					</div>
+				</section>
+				<section>
+					<div>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							配置文件例子：
+						</p>
+						<pre class="text-base rounded-xl bg-gray-100 mx-10 mt-2"><code data-trim data-noescape>
+							{
+								"version": "0.2.0",
+								"configurations": [
+									{
+										"name": "Python: 当前文件",
+										"type": "python",
+										"request": "launch",
+										"program": "${file}",
+										"console": "integratedTerminal",
+										"justMyCode": true,
+										"env": {},
+										"args": []
+									}
+								]
+							}
+						</code></pre>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							program选项可替换为其他文件：
+						</p>
+						<ul class="text-lg mx-14">
+							<li>
+								${file}代表当前选中文件
+							</li>
+							<li>
+								${workspaceFolder}代表当前工作区文件夹
+							</li>
+						</ul>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							args选项可传入参数（使用argparse库解析），env为键值对，可配置环境变量，通过os库获取
+						</p>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">Jupyter Notebook 介绍</h4>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							Jupyter Notebook 是一个基于 Web 的交互式计算环境，支持多种编程语言（包括 Python、R、Julia 等），
+							提供了一种方便的方式来创建和共享文档，其中可以包含代码、方程式、可视化图表和文本等多种元素。
+							使用 Jupyter Notebook，您可以将代码、文档和可视化图表等元素融合在一起，
+							方便快捷地进行数据分析和交流，同时可以记录和共享整个分析过程。
+							<a class="text-blue-600" href="https://jupyter.org/install">link</a>
+						</p>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							安装结束后直接在终端输入jupyter notebook即可启动：
+						</p>
+						<p class="text-xl mx-6 px-4 leading-8">
+							或使用vscode 安装jupyter扩展后直接新建jupyter notebook文件即可 *.ipynb
+						</p>
+						<pre class="text-base rounded-xl bg-gray-100 mx-10 mt-4"><code data-trim data-noescape>
+							jupyter notebook
+						</code></pre>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							使用!来执行shell命令，比如安装numpy：
+						</p>
+						<pre class="text-base rounded-xl bg-gray-100 mx-10 mt-4"><code data-trim data-noescape>
+							!pip install numpy
+							!pip list | grep pandas
+						</code></pre>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							IPython Magic命令：运行计时 - %%time 和 %timeit。
+						</p>
+						<pre class="text-base rounded-xl bg-gray-100 mx-10 mt-4"><code data-trim data-noescape>
+							import numpy
+							%timeit numpy.random.normal(size=100) 
+						</code></pre>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							其他魔法命令等请查阅文档
+							<a class="text-blue-600" href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">link</a>
+						</p>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">Python 语法介绍</h4>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							为了更好的展示，这里采用了jupyter notebook的格式：
+							<a class="text-blue-600" href="/class1-1/notebook1-1.html">link</a>
+						</p>
+					</div>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script type="module" src="/src/slides/js/main.js"></script>
+</body>
+
+</html>

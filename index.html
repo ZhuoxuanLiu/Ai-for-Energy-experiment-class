@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>能源系统人工智能实验课</title>
+    <link rel="stylesheet" href="/src/tailwind/index.css" />
+    <style>
+      .box {
+        border-radius: 2px;
+        padding: 1px 4px 2px 4px;
+        font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        font-size: 100%;
+      }
+      .box-blue {
+        background-color: rgba(66, 139, 202, 0.5);
+        color: #1d4ed8;
+      }
+      .box-yellow {
+        background-color: #FEF3C7;
+        color: #B45309;
+      }
+      .box-green {
+        background-color: #D1FAE5;
+        color: #059669;
+      }
+      .box-pink {
+        background-color: #FBCFE8;
+        color: #BE185D;
+      }
+      ul.ppt-list {
+        counter-reset: ppt-counter;
+      }
+      ul.ppt-list li::before {
+        content: counter(ppt-counter) ". "; /* 在数字后添加一个点号 */
+        counter-increment: ppt-counter; /* 自增计数器 */
+      }
+      .title-list > li:first-child::marker {
+        content: '👉';
+      }
+      p.footer::before {
+        content: '📚';
+      }
+    </style>
+  </head>
+  <body>
+    <div class="relative flex min-h-screen flex-row justify-center overflow-hidden bg-gray-50 py-6 md:py-24 sm:py-12">
+      <img src="/beams.jpg" alt="" class="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" width="1308" />
+      <div class="absolute inset-0 bg-[url(/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+      <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 md:max-w-2xl sm:max-w-xl max-w-md mx-auto sm:rounded-lg sm:px-auto flex-grow">
+        <div class="mx-auto px-4 lg:max-w-xl md:max-w-xl max-w-sm">
+          <!-- <img src="/img/logo.svg" class="h-10" alt="Tailwind Play" /> -->
+          <div class="divide-y divide-gray-300/50">
+            <div class="space-y-8 py-6 text-base leading-7 text-gray-600">
+              <p class="text-center">欢迎👏来到能源系统人工智能实验课:</p>
+              <ul class="space-y-3 title-list">
+                <li>
+                  <p>
+                    实验课主要讲解内容为: 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Python编程基础、Numpy、Pandas、Matplotlib、Pytorch入门、经典机器学习方法、
+                    深度学习入门等。
+                  </p>
+                </li>
+               
+              </ul>
+            </div>
+            <div class="pt-4 text-base space-y-8">
+              <p class="font-semibold leading-7 text-gray-900 tracking-wider">课程ppt:</p>
+              <ul class="space-y-6 ppt-list relative -top-4">
+                <li>
+                  <span class="box box-yellow">Python编程基础</span>&nbsp;&nbsp;
+                  <a href="/src/slides/html/class1-1.html" class="text-indigo-900">Python安装与基础语法</a>&nbsp;|
+                  <a href="" class="text-indigo-900">数据科学常用库入门</a>
+                </li>
+                <li>
+                  <span class="box box-green">机器学习基础</span>&nbsp;&nbsp;
+                  <a href="" class="text-indigo-900">机器学习入门1</a>&nbsp;|
+                  <a href="" class="text-indigo-900">机器学习入门2</a>
+                </li>
+                <li>
+                  <span class="box box-blue">机器学习常用库介绍</span>&nbsp;&nbsp;
+                  <a href="" class="text-indigo-900">sklearn使用</a>&nbsp;|
+                  <a href="" class="text-indigo-900">matplotlib绘图</a>
+                </li>
+                <li>
+                  <span class="box box-pink">深度学习</span>&nbsp;&nbsp;
+                  <a href="" class="text-indigo-900">梯度下降与深度学习基础</a>&nbsp;|
+                  <a href="" class="text-indigo-900">pytorch入门</a>
+                </li>
+              </ul>
+              <p class="footer">
+                欢迎添加助教微信,&nbsp;在学习过程中有任何问题随时沟通!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
