@@ -1,6 +1,7 @@
 // vite.config.js
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
+import commonjs from 'vite-plugin-commonjs';
 
 export default defineConfig({
   build: {
@@ -11,6 +12,9 @@ export default defineConfig({
       },
     },
   },
+  plugins: [
+    commonjs(),
+  ],
 })
 
   

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<title>reveal.js</title>
+	<link rel="stylesheet" href="/src/reveal/css/reset.css">
+	<link rel="stylesheet" href="/src/reveal/css/reveal.css">
+	<link rel="stylesheet" href="/src/reveal/theme/simple.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="/src/reveal/plugin/highlight/default.css">
+	<link rel="stylesheet" href="/src/slides/css/index.css" />
+	<link rel="stylesheet" href="/src/tailwind/index.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<div class="middle text-center">
+					<div style="width: 100%">
+						<h3>Python面向对象 & 数据分析</h3>
+						<p class="text-red-900 mt-4">助教: 刘卓轩</p>
+					</div>
+				</div>
+			</section>
+			<section>
+
+				<section>
+					<div class="middle text-center">
+						<div style="width: 100%">
+							<h3>Python面向对象</h3>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">面向对象思想简介</h4>
+						<div class="mx-10 grid grid-cols-3 items-center">
+							<div>
+                                <p class="text-3xl my-3 mx-4 leading-8 font-bold mt-8">
+									封装
+								</p>
+								<p class="text-xl my-3 mx-4 leading-8">
+									封装，就是将客观事物抽象为逻辑实体，实体的属性和功能相结合，形成一个有机的整体。
+                                    并对实体的属性和功能实现进行访问控制，向信任的实体开放，对不信任的实体隐藏。
+                                    通过开放的外部接口即可访问，无需知道功能如何实现。
+								</p>
+                                <div style="height: 2rem">
+                                </div>
+							</div>
+							<div>
+                                <p class="text-3xl my-3 mx-4 leading-8 font-bold mt-8">
+									继承
+								</p>
+								<p class="text-xl my-3 mx-4 leading-8">
+									在继承机制下形成有层级的类，使得低层级的类可以延用高层级类的特征和方法。
+                                    继承的实现方式有两种：实现继承、接口继承。
+								</p>
+                                <div style="height: 10rem">
+                                </div>
+							</div>
+                            <div>
+                                <p class="text-3xl my-3 mx-4 leading-8 font-bold mt-8">
+									多态
+								</p>
+								<p class="text-xl my-3 mx-4 leading-8">
+									多态，是指一个类的同名方法，在不同情况下的实现细节不同。多态机制实现不同的内部实现结构共用同一个外部接口。
+								</p>
+                                <div style="height: 10rem">
+                                </div>
+							</div>
+						</div>
+                        <p class="text-xl mt-4 mx-10 px-4 leading-8">
+							面向对象特性展示
+							<a class="text-blue-600" href="/class1-2/notebook1-2-1.html">link</a>
+                        </p>
+                        <div style="height: 4rem">
+                        </div>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<div class="middle text-center">
+						<div style="width: 100%">
+							<h3>数据科学库入门</h3>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">Numpy</h4>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							<a class="text-blue-600" href="https://numpy.org/doc/stable/reference/">英文手册</a>
+                            <a class="text-red-600 ml-10" href="https://www.numpy.org.cn/reference/">中文手册</a>
+                            <a class="text-green-600 ml-10" href="/class1-2/numpy_tutorial.html">tutorial</a>
+						</p>
+                        <div class="mx-10 grid grid-cols-2 items-center">
+                            <div>
+                                <p class="text-2xl my-3 leading-8 font-bold mt-8">
+                                    ndarray 的属性
+                                </p>
+                                <ul class="text-lg mx-4">
+                                    <li>
+                                        .ndim: 秩，即轴的数量或维度的数量
+                                    </li>
+                                    <li>
+                                        .shape: 维度，对于矩阵，n 行 m 列
+                                    </li>
+                                    <li>
+                                        .size: 元素的总个数，相当于 .shape 中 n*m 的值
+                                    </li>
+                                    <li>
+                                        .dtype: 元素类型
+                                    </li>
+                                    <li>
+                                        .itemsize: 每个元素的大小，以字节为单位
+                                    </li>
+                                    <li>
+                                        .real: 元素的实部
+                                    </li>
+                                    <li>
+                                        .imag: 元素的虚部
+                                    </li>
+                                    <li>
+                                        .data: 包含实际数组元素的缓冲区，由于一般通过数组的索引获取元素，所以通常不需要使用这个属性
+                                    </li>
+                                </ul>
+                                <div style="height: 4rem">
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-2xl my-3 leading-8 font-bold mt-8 ml-2">
+                                    常用创建数组的方式
+                                </p>
+                                <ul class="text-lg ml-6">
+                                    <li>
+                                        从已有数组创建： numpy.asarray(a)
+                                    </li>
+                                    <li>
+                                        未初始化数组：numpy.empty(shape)
+                                    </li>
+                                    <li>
+                                        全0数组：numpy.zeros(shape)
+                                    </li>
+                                    <li>
+                                        全1数组：numpy.ones(shape)
+                                    </li>
+                                    <li>
+                                        数值范围数组：numpy.arange(start, stop, step)
+                                    </li>
+                                    <li>
+                                        等差序列数组：np.linspace(start, stop, num=50, endpoint=True)
+                                    </li>
+                                    <li>
+                                        等比序列数组:np.logspace(start, stop, num=50, endpoint=True, base=10.0)
+                                    </li>
+                                    <li>
+                                        对角数组：numpy.eye(N, M=None, k=0)
+                                    </li>
+                                </ul>
+                                <div style="height: 2rem">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</section>
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">Pandas</h4>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							<a class="text-blue-600" href="https://pandas.pydata.org/docs/reference/index.html">英文手册</a>
+                            <a class="text-red-600 ml-10" href="https://www.pypandas.cn/docs/reference.html">中文手册</a>
+                            <a class="text-green-600 ml-10" href="https://www.pypandas.cn/docs/getting_started/10min.html">tutorial</a>
+						</p>
+                        <div class="mx-10 grid grid-cols-2 items-center">
+                            <div>
+                                <p class="text-base mt-2 ml-1">
+                                    Dataframe统计信息
+                                </p>
+                                <pre class="text-base rounded-xl bg-gray-100 mt-2"><code data-trim data-noescape>
+                                    df.describe()
+                                </code></pre>
+                                <p class="text-base mt-2 ml-1">
+                                    显示行列信息
+                                </p>
+                                <pre class="text-base rounded-xl bg-gray-100 mt-2"><code data-trim data-noescape>
+                                    df.index    # 列索引
+                                    df.columns  # 行索引
+                                    df.values   # array对象
+                                    df.dtypes   # 列元素属性
+                                </code></pre>
+                                <p class="text-base mt-2 ml-1">
+                                    访问数据
+                                </p>
+                                <pre class="text-base rounded-xl bg-gray-100 mt-2"><code data-trim data-noescape>
+                                    df.loc[3]   # 访问行索引为3的数据
+                                    df.iloc[3]  # 访问第4行数据，两行代码结果相同
+                                    df.loc[10:15,['tag1', 'tag2']]  # 数据行10-15，列tag1, tag2
+                                    df.loc[...].values # 返回array对象
+                                </code></pre>
+                                <p class="text-base mt-2 ml-1">
+                                    数据合并
+                                </p>
+                                <pre class="text-base rounded-xl bg-gray-100 mt-2"><code data-trim data-noescape>
+                                    df_new=df1.append(df2)
+                                    df_new1=pd.concat([df1,df2],axis=0)
+                                    df_new2=pd.concat([df3,df4],axis=1)
+                                </code></pre>
+                            </div>
+                            <div>
+                                <p class="text-base mt-2 ml-1">
+                                    生成Dataframe
+                                </p>
+                                <pre class="text-base rounded-xl bg-gray-100 mt-2"><code data-trim data-noescape>
+                                    df = pd.DataFrame({ 'A': ['foo', 'bar'],
+                                                        'B': ['one', 'two'],
+                                                        'C': np.random.randn(2),
+                                                        'D': np.random.randn(2)})
+                                </code></pre>
+                                <p class="text-base mt-2 ml-1">
+                                    布尔索引
+                                </p>
+                                <pre class="text-base rounded-xl bg-gray-100 mt-2"><code data-trim data-noescape>
+                                    df[df.C > 0]
+                                    df[df['B'].isin(['two'])]
+                                </code></pre>
+                                <p class="text-base mt-2 ml-1">
+                                    按组统计
+                                </p>
+                                <pre class="text-base rounded-xl bg-gray-100 mt-2"><code data-trim data-noescape>
+                                    df.groupby('A').sum()
+                                </code></pre>
+                                <p class="text-base mt-2 ml-1">
+                                    csv接口
+                                </p>
+                                <pre class="text-base rounded-xl bg-gray-100 mt-2"><code data-trim data-noescape>
+                                    df.to_csv('foo.csv')
+                                    pd.read_csv('foo.csv')
+                                </code></pre>
+                                <div style="height: 3.5rem">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</section>
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">来完成一个数据加载器把！</h4>
+						<p class="text-xl mt-4 mx-6 px-4 leading-8">
+							<a class="text-blue-600" href="/class1-2/chiller.csv">冷水机组故障数据</a>
+                            <a class="text-red-600 ml-10" href="/class1-2/notebook1-2-2.html">code</a>
+						</p>
+					</div>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script type="module" src="/src/slides/js/main.js"></script>
+</body>
+
+</html>
