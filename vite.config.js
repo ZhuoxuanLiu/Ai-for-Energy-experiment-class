@@ -9,6 +9,9 @@ export default defineConfig({
       input: {
         "index": resolve(__dirname, 'index.html'),
         "class1-1": resolve(__dirname, 'src/slides/html/class1-1.html'),
+        "class1-2": resolve(__dirname, 'src/slides/html/class1-2.html'),
+        "class1-3": resolve(__dirname, 'src/slides/html/class1-3.html'),
+        "class1-4": resolve(__dirname, 'src/slides/html/class1-4.html'),
       },
     },
   },

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<title>reveal.js</title>
+	<link rel="stylesheet" href="/src/reveal/css/reset.css">
+	<link rel="stylesheet" href="/src/reveal/css/reveal.css">
+	<link rel="stylesheet" href="/src/reveal/theme/simple.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="/src/reveal/plugin/highlight/default.css">
+	<link rel="stylesheet" href="/src/slides/css/index.css" />
+	<link rel="stylesheet" href="/src/tailwind/index.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<div class="middle text-center">
+					<div style="width: 100%">
+						<h3>梯度下降介绍</h3>
+						<p class="text-red-900 mt-4">助教: 刘卓轩</p>
+					</div>
+				</div>
+			</section>
+			<section>
+
+				<section>
+					<div class="middle text-center">
+						<div style="width: 100%">
+							<h3>基本概念</h3>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">导数、方向导数、梯度</h4>
+                        <p class="text-2xl mx-2 mt-6 px-6 leading-8">
+                            导数：
+                        </p>
+                        <img src="/class1-4/derivative.png" class="w-4/12 mx-auto"  alt="">
+
+
+                        <p class="text-2xl mx-2 mt-6 px-6 leading-8">
+                            方向导数：
+                        </p>
+                        <img src="/class1-4/directional_derivative.png" class="w-6/12 mx-auto"  alt="">
+
+						<p class="text-2xl mx-2 mt-6 px-6 leading-8">
+                            为什么梯度下降？
+                        </p>
+                        <img src="/class1-4/descend_direction.png" class="w-5/12 mx-auto"  alt="">
+					</div>
+				</section>
+
+                <section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">梯度下降一定能达到全局最优解吗？</h4>
+						<p class="text-xl mx-4 mt-2 mb-2 px-6 leading-8">
+							对于凸函数，答案是肯定的，因为凸函数的局部最优就是全局最优
+						</p>
+                        <img src="/class1-4/convex_minima.png" class="w-12/12 mx-auto"  alt="">
+
+					</div>
+				</section>
+
+                <section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">真实情况是...</h4>
+						<p class="text-xl mx-4 mt-2 mb-2 px-6 leading-8">
+							我们的损失函数往往是非凸的，所以梯度下降可能会陷入局部最优，或者鞍点，在这些地方梯度接近于0，所以梯度下降会接近停止。
+						</p>
+                        <div class="mx-4 grid grid-cols-4 items-cente">
+                            <div class="col-span-2">
+                                <img src="/class1-4/training_loss_small.png" class="mx-auto ml-6"  alt="">
+                            </div>
+                            <div>
+                                <img src="/class1-4/local_minima.png" class="mx-auto mt-3"  alt="">
+                                <p class="text-xl text-center mt-2 leading-8">
+                                    局部极小点：难以逃离
+                                </p>
+                            </div>
+                            <div>
+                                <img src="/class1-4/saddle_point.png" class="mx-auto mt-3"  alt="">
+                                <p class="text-xl text-center mt-3 leading-8">
+                                    鞍点：可以逃离
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-xl mx-4 mt-2 mb-2 px-6 leading-8">
+							如何判断是否陷入局部最优？是否鞍点？
+                            <a class="text-blue-600" href="/class1-4/small_gradient.pdf">link</a>
+						</p>
+                        <div class="mx-4 grid grid-cols-2 items-cente">
+                            <div>
+                                <img src="/class1-4/empirical_study.png" class="w-7/12 mx-auto"  alt="">
+                                <p class="text-xl text-center mt-2 leading-8">
+                                    An empirical study
+                                </p>
+                            </div>
+                            <div>
+                                <img src="/class1-4/small_gradient.png" class="w-9/12 mx-auto mt-2"  alt="">
+                                <p class="text-xl text-center mt-2 leading-8">
+                                    梯度接近0的情况
+                                </p>
+                            </div>
+                        </div>
+					</div>
+				</section>
+
+                <section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">怎么避免呢？</h4>
+						<p class="text-xl mx-4 mt-2 mb-2 px-6 leading-8">
+							两个角度：如何计算梯度，如何更新参数
+						</p>
+                        <div class="mx-4 grid grid-cols-2 items-cente">
+                            <div>
+                                <img src="/class1-4/batch_size_acc.png" class="mx-auto ml-4"  alt="">
+                                <img src="/class1-4/batch_size_landscape.png" class="mt-10 w-9/12 mx-auto"  alt="">
+                                <p class="text-xl text-center mt-2 leading-8">
+                                    批量梯度下降
+                                </p>
+                            </div>
+                            <div>
+                                <img src="/class1-4/grad_descend_momentum.png" class="w-10/12 mx-auto ml-4"  alt="">
+                                <img src="/class1-4/momentum.png" class="w-9/12 mx-auto"  alt="">
+                                <p class="text-xl text-center mt-2 leading-8">
+                                    带动量的梯度下降
+                                </p>
+                            </div>
+                        </div>
+					</div>
+				</section>
+
+                <section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">更好的优化器做了哪些工作？</h4>
+                        <p class="text-xl mx-4 mt-4 mb-2 px-6 leading-8">
+							自适应学习率很重要
+						</p>
+                        <div class="mx-4 mt-6 grid grid-cols-2 items-cente">
+                            <div>
+                                <img src="/class1-4/why_adapt_lr.png" class="mx-auto ml-4"  alt="">
+                            </div>
+                            <div>
+                                <img src="/class1-4/adapt_lr.png" class="w-12/12 mx-auto ml-4"  alt="">
+                            </div>
+                        </div>
+                        <p class="text-xl mx-4 mt-2 mb-2 px-6 leading-8">
+							当今最流行的优化器：Adam = 自适应学习率 + 动量
+                            <a class="text-blue-600 ml-8" href="https://arxiv.org/abs/1412.6980">paper</a>
+						</p>
+                        
+					</div>
+				</section>
+
+              
+			</section>
+			<section>
+				<section>
+					<div>
+                        <h4 class="line-bottom mx-6 px-4">来编写一个带动量的梯度优化器吧</h4>
+						<p class="text-2xl mt-4 mx-2 leading-8">
+                            <a class="text-red-600 ml-10" href="/class1-4/notebook1-4.html">code</a>
+						</p>
+					</div>
+				</section>
+				
+			</section>
+		</div>
+	</div>
+
+	<script type="module" src="/src/slides/js/main.js"></script>
+</body>
+
+</html>

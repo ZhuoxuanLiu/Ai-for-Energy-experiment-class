@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<title>reveal.js</title>
+	<link rel="stylesheet" href="/src/reveal/css/reset.css">
+	<link rel="stylesheet" href="/src/reveal/css/reveal.css">
+	<link rel="stylesheet" href="/src/reveal/theme/simple.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="/src/reveal/plugin/highlight/default.css">
+	<link rel="stylesheet" href="/src/slides/css/index.css" />
+	<link rel="stylesheet" href="/src/tailwind/index.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<div class="middle text-center">
+					<div style="width: 100%">
+						<h3>使用Python进行串口通讯</h3>
+						<p class="text-red-900 mt-4">助教: 刘卓轩</p>
+					</div>
+				</div>
+			</section>
+			<section>
+
+				<section>
+					<div class="middle text-center">
+						<div style="width: 100%">
+							<h3>IoT通讯方式介绍</h3>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">常见IoT通讯方式</h4>
+                        <blockquote class="bg-gray-100 mx-10 mt-8 py-2 rounded-md">
+						<p class="text-xl mx-2 px-4 leading-8">
+							Wi-Fi：常用的无线通讯方式，它支持
+                            <span class="text-blue-500">高速数据传输和广泛的设备兼容性</span>
+                            。Wi-Fi模块广泛应用于物联网设备中，
+                            通过Wi-Fi模块连接到Wi-Fi网络，并通过互联网与其他设备和系统通讯。
+						</p>
+						<ul class="text-lg mx-10">
+                            <li>
+                                缺点：功耗大，成本高，安全性差（易受黑客攻击）
+                            </li>
+                        </ul>
+                        </blockquote>
+
+                        <blockquote class="bg-gray-100 mx-10 mt-4 py-2 rounded-md">
+                        <p class="text-xl mx-2 px-4 leading-8">
+							蓝牙：
+                            <span class="text-blue-500">短距离</span>
+                            无线通讯方式，用于连接智能手机、平板电脑、笔记本电脑和其他智能设备。
+                            它在物联网设备中被广泛应用于连接传感器、执行器和其他设备。蓝牙低功耗（BLE）是一种低功耗蓝牙技术，
+                            用于连接能耗较低的设备，例如智能家居和可穿戴设备。
+						</p>
+						<ul class="text-lg mx-10">
+                            <li>
+                                缺点：通讯距离短、可能会互相干扰
+                            </li>
+                        </ul>
+                        </blockquote>
+
+                        <blockquote class="bg-gray-100 mx-10 mt-4 py-2 rounded-md">
+                        <p class="text-xl mx-2 px-4 leading-8">
+							MQTT：
+                            MQTT是一种轻量级的消息传递协议，用于连接物联网设备和云服务。
+                            它适用于<span class="text-blue-500">低带宽、高延迟和不稳定网络环境</span>，例如传感器网络和远程监控系统。
+						</p>
+						<ul class="text-lg mx-10">
+                            <li>
+                                缺点：速率相对较慢、需要额外的中间件支持
+                            </li>
+                        </ul>
+                        </blockquote>
+
+						
+						<div style="height: 8rem">
+						</div>
+					</div>
+				</section>
+
+                <section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">串口通讯</h4>
+						<p class="text-xl mx-2 mt-6 px-6 leading-8">
+							串行通信接口，COM接口，简称串口。主要用于串行式逐位数据传输。
+                            常见的有一般电脑应用的RS-232（使用 25 针或 9 针连接器）和工业电脑应用的半双工RS-485与全双工RS-422。
+                            (wikipedia)
+						</p>
+
+                        <div class="mx-6 grid grid-cols-3 items-center">
+							<div>
+                                <p class="text-2xl my-3 mx-4 leading-8 font-bold mt-4">
+									RS-232
+								</p>
+								<p class="text-xl my-3 mx-4 leading-8">
+									是目前最常用的一种串行通讯接口。它是在1970年由美国电子工业协会联合贝尔系统、 调制解调器厂家及计算机终端生产厂家共同制定的用于串行通讯的标准。
+                                    自IBM PC/AT开始使用简化了的9芯D型插座。
+								</p>
+                                <img src="/class1-3/rs232.jpg" class="w-7/12 mx-auto" alt="">
+							</div>
+							<div>
+                                <p class="text-2xl my-3 mx-4 leading-8 font-bold mt-4">
+									RS-422
+								</p>
+								<p class="text-xl my-3 mx-4 leading-8">
+									改进了RS-232通信距离短、速率低的缺点，将传输速率提高到10Mb/s，传输距离延长到4000英尺
+                                    （速率低于100kb/s时），并允许在一条平衡总线上连接最多10个接收器。
+								</p>
+                                <div style="height: 1rem">
+                                </div>
+                                <img src="/class1-3/rs422.jpg" class="w-6/12 mx-auto" alt="">
+							</div>
+                            <div>
+                                <p class="text-2xl my-3 mx-4 leading-8 font-bold mt-4">
+									RS-485
+								</p>
+								<p class="text-xl my-3 mx-4 leading-8">
+									为扩展应用范围，在RS-422基础上制定了RS-485 标准，增加了多点、双向通信能力，
+                                    即允许多个发送器连接到同一条总线上，同时增加了发送器的驱动能力和冲突保护特性，扩展了总线共模范围。
+								</p>
+                                <div style="height: 1rem">
+                                </div>
+                                <img src="/class1-3/rs485.jpg" class="w-6/12 mx-auto" alt="">
+							</div>
+						</div>
+					</div>
+				</section>
+
+                <section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">RS485介绍</h4>
+						<p class="text-xl mx-2 mt-6 px-6 leading-8">
+							RS-485的速率可高达10Mbit/s，理论通讯距离可达1200米；采用差分传输，使用一对双绞线，其中一根线定义为A，另一个定义为B。
+						</p>
+                        <p class="text-xl mx-2 mt-6 px-6 leading-8 text-red-600">
+                            为什么采用差分信号？
+						</p>
+                        <p class="text-xl mx-2 mt-4 px-6 leading-8">
+                            长距离布线会有信号衰减，而且引入噪声和干扰的可能性更大，在线缆A和B上的表现就是电压幅度的变化，但是，
+                            采用差分线的好处就是，差值相减就会忽略掉干扰依旧能输出正常的信号，把这种差分接收器忽略两条信号线上相同电压的能力称为共模抑制。
+						</p>
+                        <img src="/class1-3/diff_voltage.png" class="w-8/12 mx-auto" alt="">
+                        <p class="text-xl mx-2 mt-6 px-6 leading-8">
+                            RS-485不需要使用特定的总线电压，只看最小差分电压，在较长的电缆长度上，
+                            接收器接收到的电压可能会降低到+/- 200 mV，这对于RS-485仍然是完全可以接受的，这也是RS-485的优点之一。
+						</p>
+                        <img src="/class1-3/diff_voltage2.png" class="w-8/12 mx-auto" alt="">
+					</div>
+				</section>
+
+                <section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">RS485介绍</h4>
+						<p class="text-xl mx-2 mt-6 px-6 leading-8">
+							主机发送给从机或者从机发送给主机，都会占用到A和B线，所以RS-485
+                            <span class="text-blue-500">多用在半双工模式</span>。
+						</p>
+
+                        <ul class="text-lg mx-10">
+                            <li>
+                                设置串口工作模式为RS-485模式
+                            </li>
+                            <li>
+                                配置DE和RE引脚的输出方向（DE高电平使能，/RE低电平使能）
+                            </li>
+                            <li>
+                                在发送数据之前，设置DE引脚为高电平，RE引脚为高电平，以启用驱动器并禁用接收器
+                            </li>
+                            <li>
+                                在接收数据之前，设置RE引脚为低电平，DE引脚为低电平，以启用接收器并禁用驱动器
+                            </li>
+                        </ul>
+                        
+                        <img src="/class1-3/connect.png" class="w-8/12 mx-auto mt-8" alt="">
+
+                        <p class="text-xl mx-2 mt-6 px-6 leading-8">
+                            以上接法为典型的接线方式，实际上大部分RS485-USB转换器中DE、/RE连接到了TX线，
+                            可以通过程序来控制发送接收状态而不需要DE和/RE的物理接线控制。 
+                        </p>
+
+					</div>
+				</section>
+
+                <section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">RS485接线方式</h4>
+						<p class="text-xl mx-2 mt-6 px-6 leading-8">
+							RS-485总线是主从模式，支持点对点单从机模式，也支持多从机模式，不支持多主机模式。拓扑连接图如下：
+						</p>
+                        <img src="/class1-3/topology.png" class="w-4/12 mx-auto mt-8" alt="">
+                       
+                        <div class="mx-6 grid grid-cols-2 items-center">
+                            <img src="/class1-3/half_duplex.png" class="w-7/12 mx-auto" alt="">
+                            <img src="/class1-3/full_duplex.png" class="w-7/12 mx-auto" alt="">
+						</div>
+
+					</div>
+				</section>
+
+                <section>
+					<div>
+						<h4 class="line-bottom mx-6 px-4">串口通讯参数介绍</h4>
+						<p class="text-xl mx-2 mt-6 px-6 leading-8">
+							对于两个进行通行的端口，这些参数
+                            <span class="text-blue-500">必须匹配</span>：
+						</p>
+
+                        <ul class="text-xl mx-10">
+                            <li>
+                                波特率
+                            </li>
+                        </ul>
+                        <p class="text-xl mx-2 mt-2 px-6 leading-8">
+                            波特率是一个衡量传输速度的参数。通俗的讲，波特率就是每秒传多少位。波特率和距离成反比，高波特率常常用于放置的很近的仪器间的通信。
+                        </p>
+                        
+                        <ul class="text-xl mx-10">
+                            <li>
+                                数据位
+                            </li>
+                        </ul>
+                        <p class="text-xl mx-2 mt-2 px-6 leading-8">
+                            这是衡量通信中实际数据位的参数。当计算机发送一个信息包，实际的数据不会是8位的，标准的值是5、6、7和8位。如何设置取决于你想传送的信息。
+                            比如，标准的ASCII码是7位。扩展的ASCII码是8位。如果数据使用标准ASCII码，那么每个数据包使用7位数据。
+                        </p>
+
+                        <ul class="text-xl mx-10">
+                            <li>
+                                停止位
+                            </li>
+                        </ul>
+                        <p class="text-xl mx-2 mt-2 px-6 leading-8">
+                            用于表示单个包的最后一位。典型的值为1，1.5和2位。由于数据是在传输线上定时的，并且每一个设备有其自己的时钟，很可能在通信中两台设备间出现了小小的不同步。
+                            因此停止位不仅仅是表示传输的结束，并且提供计算机校正时钟同步的机会。
+                        </p>
+
+                        <ul class="text-xl mx-10">
+                            <li>
+                                奇偶校验位
+                            </li>
+                        </ul>
+                        <p class="text-xl mx-2 mt-2 px-6 leading-8">
+                            在串口通信中一种简单的检错方式.对于偶和奇校验的情况，串口会设置校验位（数据位后面的一位），用一个值确保传输的数据有偶个或者奇个逻辑高位。
+                            有机会判断是否有噪声干扰了通信或者是否传输和接收数据是否不同步。
+                        </p>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<div>
+                        <h4 class="line-bottom mx-6 px-4">Python串口程序编写</h4>
+						<p class="text-2xl mt-4 mx-2 leading-8">
+                            <a class="text-red-600 ml-10" href="/class1-3/notebook1-3.html">code</a>
+						</p>
+					</div>
+				</section>
+				
+			</section>
+		</div>
+	</div>
+
+	<script type="module" src="/src/slides/js/main.js"></script>
+</body>
+
+</html>
