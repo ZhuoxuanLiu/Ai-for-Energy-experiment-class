@@ -12,6 +12,7 @@ export default defineConfig({
         "class1-2": resolve(__dirname, 'src/slides/html/class1-2.html'),
         "class1-3": resolve(__dirname, 'src/slides/html/class1-3.html'),
         "class1-4": resolve(__dirname, 'src/slides/html/class1-4.html'),
+        "class1-5": resolve(__dirname, 'src/slides/html/class1-5.html'),
       },
     },
   },
